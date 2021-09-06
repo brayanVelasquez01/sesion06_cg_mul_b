@@ -30,10 +30,10 @@ function draw() {
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
 
-    x1=75;  y1=50; x2=100; y2=75; x3=100; y3=25;    
+    x1=175;  y1=150; x2=200; y2=175; x3=200; y3=125;    
     triangulo(ctx, x1, y1, x2, y2, x3, y3, true);
 
-    // Realizar traslacion del triangulo anterior con dx =70 y dy=50
+    // Realizar traslacion del triangulo anterior con dx =50 y dy=50
     dx=70; dy=50
     triangulo(ctx, x1+dx, y1+dy, x2+dx, y2+dy, x3+dx, y3+dy);
 
@@ -43,7 +43,14 @@ function draw() {
     rx1=123; ry1=74; rancho=88; ralto=83
     ctx.strokeRect(rx1, ry1, rancho, ralto);
     ctx.strokeRect(rx1-(rancho*s/200), ry1-(ralto*s/200), rancho*(1+s/100), ralto*(1+s/100));
-  }
+
+	//Realizar rotacion del triangulo
+    ctx.translate(rx1+rancho/2, ry1+ralto/2);
+	ctx.rotate( Math.PI/4 );
+	ctx.translate(-rx1-rancho/2, -ry1-ralto/2);
+  
+}
+
 }
 //dibuja();
 draw();
